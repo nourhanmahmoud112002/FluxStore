@@ -1,14 +1,5 @@
-import { MMKV } from 'react-native-mmkv';
-
-let _storage: MMKV | null = null;
-
-const getStorage = (): MMKV => {
-  if (!_storage) {
-    _storage = new MMKV();
-  }
-  return _storage;
-};
-
+import { createMMKV} from 'react-native-mmkv';
+const getStorage = createMMKV;
 export const MMKV_KEYS = {
   TRANSLATION_KEY: 'app_language',
 } as const;
@@ -27,5 +18,5 @@ export const getData = (key: string): string | undefined => {
 };
 
 export const removeData = (key: string) => {
-  getStorage().delete(key);
+  getStorage().remove(key);
 };
