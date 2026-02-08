@@ -18,7 +18,6 @@ export const styles = ({
       borderColor: colors.white,
       alignItems: 'center',
       justifyContent: 'center',
-      alignSelf: 'flex-start',
     },
     label: {
       fontSize: px(16),
