@@ -2,7 +2,8 @@ export const Routes = {
   WELCOME: 'Welcome',
   ONBOARDING: 'OnBoarding',
   HOME: 'Home',
-  SIGNUP:"SignUp",
+  SIGNUP: 'SignUp',
+  LOGIN: 'Login',
 } as const;
 
 // Param list type for React Navigation
@@ -11,4 +12,5 @@ export type RootStackParamList = {
   [Routes.ONBOARDING]: undefined;
   [Routes.HOME]: undefined;
   [Routes.SIGNUP]: undefined;
+  [Routes.LOGIN]: undefined;
 };

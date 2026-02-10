@@ -23,5 +23,15 @@
     "haveAccount": "Already have an account? ",
     "login": "Login",
     "signUpWith": "Or sign up with"
+  },
+  "Login": {
+    "title": "Log into\nyour account",
+    "email": "Email address",
+    "password": "Password",
+    "forgotPassword": "Forgot Password?",
+    "button": "Login",
+    "noAccount": "Don’t have an account? ",
+    "signUp": "Sign Up",
+    "loginWith": "or log in with"
   }
 }

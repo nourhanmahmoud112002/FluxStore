@@ -1,67 +1,54 @@
 import { Text, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { styles } from './styles';
 import { useAppTranslation } from '../../translation';
 import TextInput from '../../components/TextInput';
 import Button from '../../components/Button';
 import SocialIcon from '../../components/SocialIcon';
 import { AppImages } from '../../assets/images';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { navigate, Routes } from '../../navigation';
 
-const SignUp = () => {
+const Login = () => {
   const { t } = useAppTranslation();
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>{t('SignUp.title')}</Text>
+      <Text style={styles.title}>{t('Login.title')}</Text>
       <View style={styles.inputContainer}>
         <TextInput
-          placeholder={t('SignUp.name')}
+          placeholder={t('Login.email')}
           value={''}
           onChangeText={() => {}}
         />
         <TextInput
-          placeholder={t('SignUp.email')}
-          value={''}
-          onChangeText={() => {}}
-        />
-        <TextInput
-          placeholder={t('SignUp.password')}
-          value={''}
-          onChangeText={() => {}}
-        />
-        <TextInput
-          placeholder={t('SignUp.confirmPassword')}
+          placeholder={t('Login.password')}
           value={''}
           onChangeText={() => {}}
         />
       </View>
+      <Text style={styles.forgetPasswordText}>{t('Login.forgotPassword')}</Text>
       <View style={styles.buttonContainer}>
-        <Button
-          label={t('SignUp.button')}
-          onPress={() => {
+        <Button label={t('Login.button')} onPress={() => {
             navigate(Routes.HOME);
-          }}
-          size="small"
-        />
-        <Text style={styles.signUpWithText}>{t('SignUp.signUpWith')}</Text>
+        }} size="small" />
+        <Text style={styles.signUpWithText}>{t('Login.loginWith')}</Text>
         <View style={styles.socialIcons}>
           <SocialIcon source={AppImages.Apple} onPress={() => {}} />
           <SocialIcon source={AppImages.Google} onPress={() => {}} />
           <SocialIcon source={AppImages.FaceBook} onPress={() => {}} />
         </View>
-        <Text style={styles.haveAccountText}>
-          {t('SignUp.haveAccount')}
+        <Text style={styles.noAccountText}>
+          {t('Login.noAccount')}
           <Text
-            style={styles.loginText}
+            style={styles.signUpText}
             onPress={() => {
-              navigate(Routes.LOGIN);
+              navigate(Routes.SIGNUP);
             }}
           >
-            {t('SignUp.login')}
+            {t('Login.signUp')}
           </Text>
         </Text>
       </View>
     </SafeAreaView>
   );
 };
-export default SignUp;
+export default Login;
