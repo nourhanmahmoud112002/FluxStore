@@ -49,7 +49,7 @@ const OnBoarding = () => {
             slidesRef.current?.scrollToIndex({ index: currentIndex + 1 });
           }
           else{
-            navigate(Routes.HOME);
+            navigate(Routes.SIGNUP);
           }
         }}
         label={t('Onboarding.button')}

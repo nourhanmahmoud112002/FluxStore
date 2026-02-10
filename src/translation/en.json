@@ -1,16 +1,27 @@
 {
   "Welcome": {
     "title": "Welcome to GemStore! ",
-    "subTitle":" The home for a fashionista",
-    "button":"Get Started"
+    "subTitle": " The home for a fashionista",
+    "button": "Get Started"
   },
-  "Onboarding":{
-    "title1":"Discover something new",
-    "title2":"Update trendy outfit",
-    "title3":"Explore your true style",
-    "subTitle1":"Special new arrivals just for you",
-    "subTitle2":"Favorite brands and hottest trends",
-    "subTitle3":"Relax and let us bring the style to you",
-    "button":"Shopping Now"
+  "Onboarding": {
+    "title1": "Discover something new",
+    "title2": "Update trendy outfit",
+    "title3": "Explore your true style",
+    "subTitle1": "Special new arrivals just for you",
+    "subTitle2": "Favorite brands and hottest trends",
+    "subTitle3": "Relax and let us bring the style to you",
+    "button": "Shopping Now"
+  },
+  "SignUp": {
+    "title": "Create \nyour account",
+    "name": "Enter your name",
+    "email": "Email address",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "button": "Sign Up",
+    "haveAccount": "Already have an account? ",
+    "login": "Login",
+    "signUpWith": "Or sign up with"
   }
 }
