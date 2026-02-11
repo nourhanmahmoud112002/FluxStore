@@ -33,5 +33,24 @@
     "noAccount": "Don’t have an account? ",
     "signUp": "Sign Up",
     "loginWith": "or log in with"
+  },
+  "ForgetPassword": {
+    "title": "Forgot password?",
+    "subTitle": "Enter email associated with your account and we’ll send and email with intructions to reset your password",
+    "email": "enter your email here",
+    "button": "Send Verification Code"
+  },
+  "VerificationCode": {
+    "title": "Verification code",
+    "subTitle": "Please enter the verification code we sent to your email address",
+    "resendCodeIn": "Resend Code in",
+    "resendCode": "Resend Code"
+  },
+  "ResetPassword": {
+    "title": "Create new password",
+    "subTitle": "Your new password must be different \nfrom previously used password",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm password",
+    "button": "Confirm"
   }
 }

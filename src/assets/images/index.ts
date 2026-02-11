@@ -7,4 +7,7 @@ export const AppImages = {
   Google: require('./Google.png'),
   FaceBook: require('./Facebook.png'),
   Back: require('./Back.png'),
+  Email: require('./email.png'),
+  Visibility: require('./visibility.png'),
+  VisibilityOff: require('./visibility_off.png'),
 };

@@ -25,11 +25,22 @@ const Login = () => {
           onChangeText={() => {}}
         />
       </View>
-      <Text style={styles.forgetPasswordText}>{t('Login.forgotPassword')}</Text>
+      <Text
+        style={styles.forgetPasswordText}
+        onPress={() => {
+          navigate(Routes.FORGET_PASSWORD);
+        }}
+      >
+        {t('Login.forgotPassword')}
+      </Text>
       <View style={styles.buttonContainer}>
-        <Button label={t('Login.button')} onPress={() => {
+        <Button
+          label={t('Login.button')}
+          onPress={() => {
             navigate(Routes.HOME);
-        }} size="small" />
+          }}
+          size="small"
+        />
         <Text style={styles.signUpWithText}>{t('Login.loginWith')}</Text>
         <View style={styles.socialIcons}>
           <SocialIcon source={AppImages.Apple} onPress={() => {}} />

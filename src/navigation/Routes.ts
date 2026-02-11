@@ -4,6 +4,9 @@ export const Routes = {
   HOME: 'Home',
   SIGNUP: 'SignUp',
   LOGIN: 'Login',
+  FORGET_PASSWORD: 'ForgetPassword',
+  VERIFICATION: 'Verification',
+  RESET_PASSWORD: 'ResetPassword',
 } as const;
 
 // Param list type for React Navigation
@@ -13,4 +16,7 @@ export type RootStackParamList = {
   [Routes.HOME]: undefined;
   [Routes.SIGNUP]: undefined;
   [Routes.LOGIN]: undefined;
+  [Routes.FORGET_PASSWORD]: undefined;
+  [Routes.VERIFICATION]: { email: string };
+  [Routes.RESET_PASSWORD]: { email: string };
 };

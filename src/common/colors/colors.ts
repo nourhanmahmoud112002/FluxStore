@@ -9,4 +9,5 @@ export const colors = {
   darkGray: '#464447',
   darkBrown: '#332218',
   darkBlue: '#1E3354',
+  semiTransparentDarkBlue: '#12142080',
 } as const;
