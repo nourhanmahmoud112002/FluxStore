@@ -53,7 +53,7 @@ const Verification = () => {
       {isTimerActive ? (
         <Text style={styles.resendCodeIn}>
           {t('VerificationCode.resendCodeIn')}
-          {` (${timer})`}
+          {` 00:${timer}`}
         </Text>
       ) : (
         <Text style={styles.resendCode}>
