@@ -32,6 +32,13 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderWidth: px(1),
     borderColor: colors.gray,
+    paddingHorizontal: 0,
+    paddingVertical: 0,
+  },
+  input: {
+    textAlign: 'center',
+    fontSize: px(20),
+    padding: 0,
   },
   textInputContainer: {
     flexDirection: 'row',

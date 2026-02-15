@@ -1,4 +1,11 @@
-import { StyleProp, ViewStyle } from 'react-native';
+import {
+  KeyboardTypeOptions,
+  NativeSyntheticEvent,
+  StyleProp,
+  TextInputKeyPressEventData,
+  TextStyle,
+  ViewStyle,
+} from 'react-native';
 import { AppImages } from '../../assets/images';
 
 export interface ITextInputProps {
@@ -8,5 +15,9 @@ export interface ITextInputProps {
   startIcon?: (typeof AppImages)[keyof typeof AppImages];
   endIcon?: (typeof AppImages)[keyof typeof AppImages];
   styles?: StyleProp<ViewStyle>;
+  inputStyle?: StyleProp<TextStyle>;
   onEndIconPress?: () => void;
+  maxLength?: number;
+  keyboardType?: KeyboardTypeOptions;
+  onKeyPress?: (e: NativeSyntheticEvent<TextInputKeyPressEventData>) => void;
 }
