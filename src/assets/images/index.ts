@@ -10,4 +10,5 @@ export const AppImages = {
   Email: require('./email.png'),
   Visibility: require('./visibility.png'),
   VisibilityOff: require('./visibility_off.png'),
+  Success: require('./Success.png'),
 };

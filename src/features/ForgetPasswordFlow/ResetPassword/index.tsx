@@ -4,9 +4,12 @@ import BackIcon from '../../../components/BackIcon';
 import { useAppTranslation } from '../../../translation';
 import { Text, View } from 'react-native';
 import TextInput from '../../../components/TextInput';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { BottomSheetModal } from '@gorhom/bottom-sheet';
 import { AppImages } from '../../../assets/images';
 import Button from '../../../components/Button';
+import Sheet from '../../../components/Sheet';
+import { navigate, Routes } from '../../../navigation';
 
 const ResetPassword = () => {
   const { t } = useAppTranslation();
@@ -14,48 +17,68 @@ const ResetPassword = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const bottomSheetRef = useRef<BottomSheetModal>(null);
   return (
-    <SafeAreaView style={styles.container}>
-      <BackIcon />
-      <Text style={styles.title}>{t('ResetPassword.title')}</Text>
-      <Text style={styles.subTitle}>{t('ResetPassword.subTitle')}</Text>
-      <View style={styles.textInputContainer}>
-        <TextInput
-          placeholder={t('ResetPassword.newPassword')}
-          value={password}
-          onChangeText={text => {
-            setPassword(text);
-          }}
-          endIcon={
-            showPassword ? AppImages.Visibility : AppImages.VisibilityOff
-          }
-          onEndIconPress={() => {
-            setShowPassword(!showPassword);
-          }}
-        />
-        <TextInput
-          placeholder={t('ResetPassword.confirmPassword')}
-          value={confirmPassword}
-          onChangeText={text => {
-            setConfirmPassword(text);
-          }}
-          endIcon={
-            showConfirmPassword ? AppImages.Visibility : AppImages.VisibilityOff
-          }
-          onEndIconPress={() => {
-            setShowConfirmPassword(!showConfirmPassword);
-          }}
-        />
-      </View>
-      <View style={styles.buttonContainer}>
-        <Button
-          label={t('ResetPassword.button')}
-          onPress={() => {}}
-          size="small"
-          disabled={!password || !confirmPassword || password !== confirmPassword}
-        />
-      </View>
-    </SafeAreaView>
+    <>
+      <SafeAreaView style={styles.container}>
+        <BackIcon />
+        <Text style={styles.title}>{t('ResetPassword.title')}</Text>
+        <Text style={styles.subTitle}>{t('ResetPassword.subTitle')}</Text>
+        <View style={styles.textInputContainer}>
+          <TextInput
+            placeholder={t('ResetPassword.newPassword')}
+            value={password}
+            onChangeText={text => {
+              setPassword(text);
+            }}
+            endIcon={
+              showPassword ? AppImages.Visibility : AppImages.VisibilityOff
+            }
+            onEndIconPress={() => {
+              setShowPassword(!showPassword);
+            }}
+          />
+          <TextInput
+            placeholder={t('ResetPassword.confirmPassword')}
+            value={confirmPassword}
+            onChangeText={text => {
+              setConfirmPassword(text);
+            }}
+            endIcon={
+              showConfirmPassword
+                ? AppImages.Visibility
+                : AppImages.VisibilityOff
+            }
+            onEndIconPress={() => {
+              setShowConfirmPassword(!showConfirmPassword);
+            }}
+          />
+        </View>
+        <View style={styles.buttonContainer}>
+          <Button
+            label={t('ResetPassword.button')}
+            onPress={() => {
+              console.log('Button Pressed - Opening Bottom Sheet');
+              bottomSheetRef.current?.present();
+            }}
+            size="small"
+            disabled={
+              !password || !confirmPassword || password !== confirmPassword
+            }
+          />
+        </View>
+      </SafeAreaView>
+      <Sheet
+        bottomSheetRef={bottomSheetRef}
+        title={t('PasswordChangeSuccess.title')}
+        subTitle={t('PasswordChangeSuccess.subTitle')}
+        buttonLabel={t('PasswordChangeSuccess.button')}
+        onButtonPress={() => {
+          navigate(Routes.HOME);
+        }}
+        icon={AppImages.Success}
+      />
+    </>
   );
 };
 export default ResetPassword;

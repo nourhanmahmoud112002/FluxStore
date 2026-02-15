@@ -52,5 +52,10 @@
     "newPassword": "New password",
     "confirmPassword": "Confirm password",
     "button": "Confirm"
+  },
+  "PasswordChangeSuccess": {
+    "title": "Your password has been changed",
+    "subTitle": "Welcome back! Discover now!",
+    "button": "Browse Home"
   }
 }

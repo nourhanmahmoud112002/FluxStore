@@ -52,5 +52,10 @@
     "newPassword": "كلمة مرور جديدة",
     "confirmPassword": "تأكيد كلمة المرور",
     "button": "تأكيد"
+  },
+  "PasswordChangeSuccess": {
+    "title": "تم تغيير كلمة المرور الخاصة بك",
+    "subTitle": "مرحباً بعودتك! اكتشف الآن!",
+    "button": "تصفح الصفحة الرئيسية"
   }
 }
