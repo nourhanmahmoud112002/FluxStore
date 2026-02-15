@@ -6,6 +6,7 @@ export const colors = {
   semiTransparentBlack: '#00000080',
   lightGray: '#E7E8E9',
   gray: '#D6D6D6',
+  mediumGray: '#B9B9B9',
   darkGray: '#464447',
   darkBrown: '#332218',
   darkBlue: '#1E3354',

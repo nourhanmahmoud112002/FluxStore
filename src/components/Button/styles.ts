@@ -5,11 +5,15 @@ import { colors, px } from '../../common';
 export const styles = ({
   variant,
   size,
-}: Pick<ButtonProps, 'variant' | 'size'>) =>
+  disabled,
+}: Pick<ButtonProps, 'variant' | 'size' | 'disabled'>) =>
   StyleSheet.create({
     container: {
-      backgroundColor:
-        variant === 'primary' ? colors.primaryButton : colors.secondaryButton,
+      backgroundColor: disabled
+        ? colors.mediumGray
+        : variant === 'primary'
+        ? colors.primaryButton
+        : colors.secondaryButton,
       paddingHorizontal:
         size === 'small' ? px(41) : size === 'medium' ? px(53) : px(108),
       paddingVertical: px(15),
