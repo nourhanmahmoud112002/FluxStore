@@ -8,4 +8,5 @@ export interface ITextInputProps {
   startIcon?: (typeof AppImages)[keyof typeof AppImages];
   endIcon?: (typeof AppImages)[keyof typeof AppImages];
   styles?: StyleProp<ViewStyle>;
+  onEndIconPress?: () => void;
 }

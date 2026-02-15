@@ -1,8 +1,9 @@
-import { View, TextInput as BaseInput, Image } from 'react-native';
+import { View, TextInput as BaseInput, Image, Pressable } from 'react-native';
 import { ITextInputProps } from './types';
 import { colors } from '../../common';
 import { styles } from './styles';
 import { useState } from 'react';
+import { AppImages } from '../../assets/images';
 
 const TextInput = ({
   placeholder,
@@ -11,6 +12,7 @@ const TextInput = ({
   startIcon,
   endIcon,
   styles: customStyles,
+  onEndIconPress,
 }: ITextInputProps) => {
   const [valueState, setValueState] = useState(value);
   const handleChangeText = (text: string) => {
@@ -26,8 +28,13 @@ const TextInput = ({
         onChangeText={handleChangeText}
         placeholderTextColor={colors.black}
         style={styles.textInput}
+        secureTextEntry={endIcon === AppImages.VisibilityOff}
       />
-      {endIcon && <Image source={endIcon} style={styles.icon} />}
+      {endIcon && (
+        <Pressable onPress={onEndIconPress}>
+          <Image source={endIcon} style={styles.icon} />
+        </Pressable>
+      )}
     </View>
   );
 };
