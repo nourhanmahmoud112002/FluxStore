@@ -5,6 +5,7 @@ import { Text, View } from 'react-native';
 import { useAppTranslation } from '../../../translation';
 import TextInput from '../../../components/TextInput';
 import { useEffect, useState } from 'react';
+import { navigate, Routes } from '../../../navigation';
 
 const Verification = () => {
   const { t } = useAppTranslation();
@@ -13,6 +14,7 @@ const Verification = () => {
   useEffect(() => {
     if (timer === 0) {
       setIsTimerActive(false);
+      navigate(Routes.RESET_PASSWORD);
     }
     const interval = setTimeout(() => {
       setTimer(prev => prev - 1);
