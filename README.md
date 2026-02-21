@@ -1,97 +1,244 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# FluxStore
 
-# Getting Started
+A React Native e-commerce mobile application with complete authentication flow, built with TypeScript and Redux Toolkit.
+
+## Tech Stack
+
+| Category | Technology |
+|----------|------------|
+| Framework | React Native 0.83.1 |
+| Language | TypeScript |
+| State Management | Redux Toolkit |
+| Navigation | React Navigation (Stack) |
+| HTTP Client | Axios |
+| Local Storage | MMKV |
+| Internationalization | i18next, react-i18next |
+| UI Components | Bottom Sheet, Reanimated |
+| Authentication | Google Sign-In |
+| Debugging | Reactotron |
+
+## Project Structure
+
+```
+src/
+├── assets/                 # Static assets (images, fonts)
+│   └── images/
+├── common/                 # Shared utilities and constants
+│   ├── colors/             # Color palette
+│   ├── storage/            # MMKV storage helpers
+│   └── utils/              # Utility functions
+├── components/             # Reusable UI components
+│   ├── BackIcon/
+│   ├── Button/
+│   ├── Paginator/
+│   ├── Sheet/              # Bottom sheet component
+│   ├── SocialIcon/
+│   └── TextInput/
+├── constants/
+│   └── endpoints.ts        # API endpoint definitions
+├── features/               # Feature-based screens
+│   ├── ForgetPasswordFlow/
+│   │   ├── ForgetPassword/ # Email input for password reset
+│   │   ├── Verification/   # OTP verification
+│   │   └── ResetPassword/  # New password entry
+│   ├── Home/
+│   ├── Login/
+│   ├── OnBoarding/
+│   ├── SignUp/
+│   └── Welcome/
+├── mock/                   # Mock data for development
+├── navigation/
+│   ├── MainNavigation.tsx  # Stack navigator setup
+│   ├── Routes.ts           # Route constants & param types
+│   └── navigationUtils.ts  # Navigation helper functions
+├── redux/
+│   ├── features/
+│   │   └── authSlice.ts    # Authentication state & actions
+│   ├── store/              # Redux store configuration
+│   └── utils.ts            # Redux utility functions
+├── services/
+│   └── api/
+│       ├── auth.ts         # Authentication API calls
+│       ├── apiUtils.ts     # API error handling
+│       └── client.ts       # Axios instance configuration
+├── theme/                  # App-wide theming
+├── translation/            # i18n configuration
+│   ├── ar.json             # Arabic translations
+│   ├── en.json             # English translations
+│   └── index.ts
+└── types/
+    ├── apiResponse/        # API response types
+    └── dto/                # Data transfer object types
+```
+
+## Authentication Flow
+
+### Overview
+
+```
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│   Welcome   │ ──► │  OnBoarding │ ──► │    Login    │
+└─────────────┘     └─────────────┘     └──────┬──────┘
+                                               │
+                    ┌──────────────────────────┼──────────────────────────┐
+                    │                          │                          │
+                    ▼                          ▼                          ▼
+            ┌─────────────┐           ┌─────────────┐            ┌─────────────┐
+            │   Sign Up   │           │    Home     │            │   Forget    │
+            └──────┬──────┘           └─────────────┘            │  Password   │
+                   │                        ▲                    └──────┬──────┘
+                   │                        │                          │
+                   └────────────────────────┘                          ▼
+                                                                ┌─────────────┐
+                                                                │ Verification│
+                                                                │    (OTP)    │
+                                                                └──────┬──────┘
+                                                                       │
+                                                                       ▼
+                                                                ┌─────────────┐
+                                                                │   Reset     │
+                                                                │  Password   │
+                                                                └─────────────┘
+```
+
+### Screens & Functionality
+
+| Screen | Description | API Endpoint |
+|--------|-------------|--------------|
+| **Login** | Email/password authentication + Google Sign-In | `/api/v1/auth/login`, `/api/v1/auth/google-login` |
+| **Sign Up** | User registration with name, email, password | `/api/v1/auth/register` |
+| **Forget Password** | Request password reset OTP via email | `/api/v1/auth/forget-password` |
+| **Verification** | Enter 6-digit OTP code (auto-submit on complete) | `/api/v1/auth/verify-reset-password-otp` |
+| **Reset Password** | Set new password with token validation | `/api/v1/auth/reset-password` |
+
+### Authentication State Management
+
+The app uses Redux Toolkit for authentication state:
+
+```typescript
+// State structure
+interface IAuthState {
+  user: AuthResponse | null;
+  loaders: { login, register, googleLogin, ... };
+  errors: { login, register, googleLogin, ... };
+}
+```
+
+**Actions:**
+- `login` - Email/password authentication
+- `register` - New user registration
+- `googleLogin` - Google OAuth authentication
+- `logout` - User logout
+- `forgetPassword` - Request OTP
+- `verifyOtp` - Validate OTP code
+- `resetPassword` - Set new password
+- `refreshToken` - Refresh access token
+- `changePassword` - Update password (authenticated)
+
+### Token Storage
+
+User data and tokens are persisted using MMKV:
+
+```typescript
+// After successful login/register
+storeData(MMKV_KEYS.USER_KEY, {
+  user: { id, firstName, lastName, email, ... },
+  accessToken: { token: "..." },
+  refreshToken: { token: "..." }
+});
+```
+
+### API Response Format
+
+All API responses follow this structure:
+
+```typescript
+interface ApiResponse<T> {
+  data?: T;
+  isSuccess: boolean;
+  message: string;
+  errorCode: string;
+  validationErrors: {
+    emailAddress?: string;
+    password?: string;
+    // ...
+  };
+}
+```
+
+## Getting Started
 
 > **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
 
-## Step 1: Start Metro
+### Prerequisites
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+- Node.js >= 20
+- React Native CLI
+- Xcode (for iOS)
+- Android Studio (for Android)
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+### Installation
 
-```sh
-# Using npm
-npm start
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/FluxStore.git
+cd FluxStore
 
-# OR using Yarn
-yarn start
-```
+# Install dependencies
+npm install
+# OR
+yarn install
 
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
+# iOS only: Install CocoaPods
 bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
 bundle exec pod install
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+### Running the App
+
+#### Start Metro
 
 ```sh
-# Using npm
-npm run ios
+npm start
+# OR
+yarn start
+```
 
-# OR using Yarn
+#### Android
+
+```sh
+npm run android
+# OR
+yarn android
+```
+
+#### iOS
+
+```sh
+npm run ios
+# OR
 yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+### Environment Configuration
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+Update the API base URL in `src/constants/endpoints.ts`:
 
-## Step 3: Modify your app
+```typescript
+const BASE_URL = 'http://localhost:5089'; // Your API server
+```
 
-Now that you have successfully run the app, let's make changes!
+## Available Scripts
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+| Script | Description |
+|--------|-------------|
+| `npm start` | Start Metro bundler |
+| `npm run android` | Run on Android |
+| `npm run ios` | Run on iOS |
+| `npm run lint` | Run ESLint |
+| `npm test` | Run Jest tests |
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+## License
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+This project is private and not licensed for public use.
 
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
