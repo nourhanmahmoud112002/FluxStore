@@ -23,8 +23,14 @@ export const styles = StyleSheet.create({
     color: colors.black,
     lineHeight: px(24),
   },
-  button:{
-    marginTop:px(54),
-    alignItems:'center',
-  }
+  button: {
+    marginTop: px(54),
+    alignItems: 'center',
+  },
+  errorText: {
+    color: 'red',
+    fontSize: px(12),
+    fontWeight: '400',
+    lineHeight: px(24),
+  },
 });

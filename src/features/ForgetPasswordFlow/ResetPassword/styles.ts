@@ -26,9 +26,19 @@ export const styles = StyleSheet.create({
   },
   textInputContainer: {
     gap: px(20),
-    marginBottom: px(107),
+    marginBottom: px(5),
   },
   buttonContainer: {
     alignItems: 'center',
+  },
+  error: {
+    color: 'red',
+    fontSize: px(12),
+    fontWeight: '400',
+    lineHeight: px(24),
+  },
+  errorContainer: {
+    marginBottom: px(107),
+    gap: px(5),
   },
 });

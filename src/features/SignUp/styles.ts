@@ -17,7 +17,16 @@ export const styles = StyleSheet.create({
   inputContainer: {
     gap: px(20),
     marginTop: px(20),
-    marginBottom: px(44),
+    marginBottom: px(5),
+  },
+  errorText: {
+    color: 'red',
+    fontSize: px(12),
+    fontWeight: '400',
+    lineHeight: px(24), 
+  },
+  generalErrorContainer:{
+     marginBottom: px(44),
   },
   buttonContainer: {
     alignItems: 'center',
@@ -35,13 +44,13 @@ export const styles = StyleSheet.create({
     gap: px(20),
     marginBottom: px(40),
   },
-  haveAccountText:{
+  haveAccountText: {
     fontSize: px(14),
     fontWeight: '400',
     lineHeight: px(20),
     color: colors.black,
   },
-  loginText:{
-    textDecorationLine:'underline',
-  }
+  loginText: {
+    textDecorationLine: 'underline',
+  },
 });

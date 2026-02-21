@@ -6,16 +6,21 @@ import './src/translation';
 import { enableScreens } from 'react-native-screens';
 import { navigationRef } from './src/navigation';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+import { Provider } from 'react-redux';
+import { store } from './src/redux/store';
+
 enableScreens();
 const App = () => {
   return (
-    <GestureHandlerRootView style={styles.container}>
-      <BottomSheetModalProvider>
-        <NavigationContainer ref={navigationRef}>
-          <MainNavigation />
-        </NavigationContainer>
-      </BottomSheetModalProvider>
-    </GestureHandlerRootView>
+    <Provider store={store}>
+      <GestureHandlerRootView style={styles.container}>
+        <BottomSheetModalProvider>
+          <NavigationContainer ref={navigationRef}>
+            <MainNavigation />
+          </NavigationContainer>
+        </BottomSheetModalProvider>
+      </GestureHandlerRootView>
+    </Provider>
   );
 };
 

@@ -26,9 +26,9 @@ export const styles = StyleSheet.create({
   textInput: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: px(58),
-    height: px(58),
-    borderRadius: px(29),
+    width: px(40),
+    height: px(40),
+    borderRadius: px(20),
     backgroundColor: colors.white,
     borderWidth: px(1),
     borderColor: colors.gray,
@@ -43,7 +43,6 @@ export const styles = StyleSheet.create({
   textInputContainer: {
     flexDirection: 'row',
     gap: px(12),
-    marginHorizontal: px(22),
     marginBottom: px(47),
   },
   resendCodeIn: {
@@ -56,6 +55,12 @@ export const styles = StyleSheet.create({
     fontSize: px(14),
     fontWeight: '400',
     color: 'red',
+    lineHeight: px(24),
+  },
+  errorText: {
+    color: 'red',
+    fontSize: px(12),
+    fontWeight: '400',
     lineHeight: px(24),
   },
 });

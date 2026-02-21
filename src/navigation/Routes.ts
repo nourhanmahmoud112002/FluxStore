@@ -18,5 +18,5 @@ export type RootStackParamList = {
   [Routes.LOGIN]: undefined;
   [Routes.FORGET_PASSWORD]: undefined;
   [Routes.VERIFICATION]: { email: string };
-  [Routes.RESET_PASSWORD]: { email: string };
+  [Routes.RESET_PASSWORD]: { email: string; resetPasswordToken?: string };
 };

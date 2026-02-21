@@ -17,15 +17,24 @@ export const styles = StyleSheet.create({
   inputContainer: {
     gap: px(20),
     marginTop: px(20),
+    marginBottom: px(5),
+  },
+  errorText: {
+    color: 'red',
+    fontSize: px(12),
+    fontWeight: '400',
+    lineHeight: px(24),
+  },
+  generalErrorContainer: {
     marginBottom: px(28),
   },
   forgetPasswordText: {
     marginBottom: px(25),
-    fontSize:px(12),
-    fontWeight:'400',
-    lineHeight:px(24),
-    color:colors.black,
-    alignSelf:'flex-end',
+    fontSize: px(12),
+    fontWeight: '400',
+    lineHeight: px(24),
+    color: colors.black,
+    alignSelf: 'flex-end',
   },
   buttonContainer: {
     alignItems: 'center',

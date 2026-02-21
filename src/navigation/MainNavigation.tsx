@@ -7,6 +7,7 @@ import Welcome from '../features/Welcome';
 import ForgetPassword from '../features/ForgetPasswordFlow/ForgetPassword';
 import Verification from '../features/ForgetPasswordFlow/Verification';
 import ResetPassword from '../features/ForgetPasswordFlow/ResetPassword';
+import Home from '../features/Home';
 
 const MainNavigation = () => {
   const Stack = createStackNavigator();
@@ -20,6 +21,7 @@ const MainNavigation = () => {
       <Stack.Screen name={Routes.FORGET_PASSWORD} component={ForgetPassword} />
       <Stack.Screen name={Routes.VERIFICATION} component={Verification} />
       <Stack.Screen name={Routes.RESET_PASSWORD} component={ResetPassword} />
+      <Stack.Screen name={Routes.HOME} component={Home} />
     </Stack.Navigator>
   );
 };
