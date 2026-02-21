@@ -58,7 +58,7 @@ const ResetPassword = () => {
         if (result.payload.errorCode === 'VALIDATION_ERROR') {
           const validationErrors = result.payload.validationErrors;
           setEmailError(validationErrors.emailAddress || '');
-          setPasswordError(validationErrors.newPassword || '');
+          setPasswordError(validationErrors.password || '');
           setError('');
         } else {
           setEmailError('');

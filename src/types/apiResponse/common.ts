@@ -8,7 +8,6 @@ export interface ApiResponse<T> {
     password?: string;
     name?: string;
     otp?: string;
-    newPassword?: string;
   };
   meta: {
     pageNumber?: string;
