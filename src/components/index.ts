@@ -7,3 +7,4 @@ export { default as Sheet } from './Sheet';
 export { default as Header } from './Header';
 export { default as CategoryIcon } from './CategoryIcon';
 export { default as Tabs } from './Tabs';
+export { default as ImageBackgroundCard } from './ImageBackgroundCard';
