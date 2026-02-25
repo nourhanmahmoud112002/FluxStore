@@ -21,7 +21,8 @@ const Tabs = ({ items }: ITabProps) => {
         />
       )}
       keyExtractor={(item, index) => index.toString()}
-      contentContainerStyle={styles.container}
+      contentContainerStyle={styles.contentContainer}
+      style={styles.container}
     />
   );
 };
