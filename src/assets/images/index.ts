@@ -11,4 +11,10 @@ export const AppImages = {
   Visibility: require('./visibility.png'),
   VisibilityOff: require('./visibility_off.png'),
   Success: require('./Success.png'),
+  Menu: require('./Menu.png'),
+  Notification: require('./Notification.png'),
+  Women: require('./Women.png'),
+  Men: require('./Men.png'),
+  Accessories: require('./Accessories.png'),
+  Beauty: require('./Beauty.png'),
 };

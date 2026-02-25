@@ -1,6 +1,9 @@
-export * from './Button';
-export * from './Paginator';
-export * from './TextInput';
-export * from './SocialIcon';
-export * from './BackIcon';
-export * from './Sheet';
+export { default as Button } from './Button';
+export { default as Paginator } from './Paginator';
+export { default as TextInput } from './TextInput';
+export { default as SocialIcon } from './SocialIcon';
+export { default as BackIcon } from './BackIcon';
+export { default as Sheet } from './Sheet';
+export { default as Header } from './Header';
+export { default as CategoryIcon } from './CategoryIcon';
+export { default as Tabs } from './Tabs';

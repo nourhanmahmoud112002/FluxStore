@@ -11,4 +11,7 @@ export const colors = {
   darkBrown: '#332218',
   darkBlue: '#1E3354',
   semiTransparentDarkBlue: '#12142080',
+  brown: '#3A2C27',
+  silverGray: '#9D9D9D',
+  paleGray: '#F3F3F3',
 } as const;
