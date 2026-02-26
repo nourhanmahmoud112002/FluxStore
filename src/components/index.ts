@@ -8,3 +8,5 @@ export { default as Header } from './Header';
 export { default as CategoryIcon } from './CategoryIcon';
 export { default as Tabs } from './Tabs';
 export { default as ImageBackgroundCard } from './ImageBackgroundCard';
+export { default as Card } from './Card';
+export { default as Stars } from './Stars';

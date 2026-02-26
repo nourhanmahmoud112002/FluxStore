@@ -14,4 +14,7 @@ export const colors = {
   brown: '#3A2C27',
   silverGray: '#9D9D9D',
   paleGray: '#F3F3F3',
+  darkCharcoal: '#1D1F22',
+  tealGreen: '#508A7B',
+  GRAY_BORDER: '#BEBFC4',
 } as const;

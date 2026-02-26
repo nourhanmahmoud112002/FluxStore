@@ -18,4 +18,7 @@ export const AppImages = {
   Accessories: require('./Accessories.png'),
   Beauty: require('./Beauty.png'),
   Background1: require('./background1.jpg'),
+  LinenDress: require('./LinenDress.png'),
+  NotFav: require('./NotFav.png'),
+  Fav: require('./Fav.png'),
 };
