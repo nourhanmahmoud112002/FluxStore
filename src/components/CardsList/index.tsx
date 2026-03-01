@@ -11,6 +11,8 @@ const CardsList = ({ cards, direction = 'horizontal' }: ICardsListProps) => {
   return (
     <FlatList
       data={cards}
+      showsHorizontalScrollIndicator={false}
+      showsVerticalScrollIndicator={false}
       horizontal={direction === 'horizontal'}
       renderItem={({ item }) => <Card {...item} />}
       keyExtractor={(item, index) => index.toString()}
