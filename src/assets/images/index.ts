@@ -21,4 +21,5 @@ export const AppImages = {
   LinenDress: require('./LinenDress.png'),
   NotFav: require('./NotFav.png'),
   Fav: require('./Fav.png'),
+  Banner: require('./banner.png'),
 };
