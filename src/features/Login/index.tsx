@@ -32,9 +32,8 @@ const Login = () => {
           storeData(MMKV_KEYS.USER_KEY, result.payload.data);
         }
         setError(null);
-        navigate(Routes.HOME);
-      } else {
-        if (result.payload.errorCode === 'VALIDATION_ERROR') {
+        navigate(Routes.BOTTOM_TABS);
+      } else if (result.payload.errorCode === 'VALIDATION_ERROR') {
           setEmailError(result.payload.validationErrors.emailAddress || null);
           setPasswordError(result.payload.validationErrors.password || null);
         } else {
@@ -42,7 +41,6 @@ const Login = () => {
           setPasswordError(null);
           setError(result.payload.message || t('Login.error'));
         }
-      }
     }
   };
   const handleGoogleSignIn = async () => {
@@ -59,7 +57,7 @@ const Login = () => {
           storeData(MMKV_KEYS.USER_KEY, result.payload.data);
         }
         setError(null);
-        navigate(Routes.HOME);
+        navigate(Routes.BOTTOM_TABS);
       } else {
         setError(result.payload.message || t('Login.error'));
       }

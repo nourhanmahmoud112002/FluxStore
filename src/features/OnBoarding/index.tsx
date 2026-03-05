@@ -2,11 +2,11 @@ import { Animated, FlatList, View } from 'react-native';
 import { OnBoardingData } from '../../mock/OnBoardingData';
 import { styles } from './styles';
 import OnboardingItem from './components/onboardingItem';
-import Paginator from '../../components/Paginator';
+import { Paginator, Button } from '../../components';
 import { useRef, useState } from 'react';
-import Button from '../../components/Button';
 import { useAppTranslation } from '../../translation';
 import { navigate, Routes } from '../../navigation';
+import { MMKV_KEYS, storeData } from '../../common';
 
 const OnBoarding = () => {
   const { t } = useAppTranslation();
@@ -47,9 +47,9 @@ const OnBoarding = () => {
         onPress={() => {
           if (currentIndex < OnBoardingData.length - 1) {
             slidesRef.current?.scrollToIndex({ index: currentIndex + 1 });
-          }
-          else{
+          } else {
             navigate(Routes.SIGNUP);
+            storeData(MMKV_KEYS.FINISH_ONBOARDING, true);
           }
         }}
         label={t('Onboarding.button')}

@@ -22,4 +22,8 @@ export const AppImages = {
   NotFav: require('./NotFav.png'),
   Fav: require('./Fav.png'),
   Banner: require('./banner.png'),
+  Home: require('./home.png'),
+  Search: require('./search.png'),
+  Cart: require('./cart.png'),
+  Profile: require('./profile.png'),
 };

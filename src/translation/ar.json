@@ -66,5 +66,15 @@
     "fieldRequired": "هذا الحقل مطلوب.",
     "confirmPasswordError": "كلمات المرور غير متطابقة.",
     "failedResetPassword": "فشل إعادة تعيين كلمة المرور. يرجى المحاولة مرة أخرى."
+  },
+  "Home": {
+    "title": "Gemstore",
+    "tab1": "نساء",
+    "tab2": "رجال",
+    "tab3": "إكسسوارات",
+    "tab4": "جمال",
+    "featuredProducts": "منتجات مميزة",
+    "showAll": "عرض الكل",
+    "topCollections": "أفضل المجموعات"
   }
 }

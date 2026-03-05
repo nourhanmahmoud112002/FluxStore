@@ -51,9 +51,8 @@ const SignUp = () => {
         if (result.payload.data) {
           storeData(MMKV_KEYS.USER_KEY, result.payload.data);
         }
-        navigate(Routes.HOME);
-      } else {
-        if (result.payload.errorCode === 'VALIDATION_ERROR') {
+        navigate(Routes.BOTTOM_TABS);
+      } else if (result.payload.errorCode === 'VALIDATION_ERROR') {
           const validationErrors = result.payload.validationErrors;
           setNameError(validationErrors?.name || '');
           setEmailError(validationErrors?.emailAddress || '');
@@ -61,7 +60,6 @@ const SignUp = () => {
         } else {
           setError(result.payload.message || t('SignUp.error'));
         }
-      }
     }
   };
   return (
@@ -74,7 +72,7 @@ const SignUp = () => {
             value={name}
             onChangeText={setName}
           />
-          {nameError && <Text style={styles.errorText}>{nameError}</Text>}
+          {!!(nameError) && <Text style={styles.errorText}>{nameError}</Text>}
         </View>
 
         <View>
@@ -84,7 +82,7 @@ const SignUp = () => {
             onChangeText={setEmail}
             keyboardType="email-address"
           />
-          {emailError && <Text style={styles.errorText}>{emailError}</Text>}
+          {!!(emailError) && <Text style={styles.errorText}>{emailError}</Text>}
         </View>
         <View>
           <TextInput
@@ -92,7 +90,7 @@ const SignUp = () => {
             value={password}
             onChangeText={setPassword}
           />
-          {passwordError && (
+          {!!(passwordError) && (
             <Text style={styles.errorText}>{passwordError}</Text>
           )}
         </View>
@@ -102,7 +100,7 @@ const SignUp = () => {
             value={confirmPassword}
             onChangeText={setConfirmPassword}
           />
-          {confirmPasswordError && (
+          {!!(confirmPasswordError) && (
             <Text style={styles.errorText}>{confirmPasswordError}</Text>
           )}
         </View>

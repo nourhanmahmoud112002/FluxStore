@@ -54,8 +54,7 @@ const ResetPassword = () => {
       if (result.payload.isSuccess) {
         resetErrors();
         bottomSheetRef.current?.present();
-      } else {
-        if (result.payload.errorCode === 'VALIDATION_ERROR') {
+      } else if (result.payload.errorCode === 'VALIDATION_ERROR') {
           const validationErrors = result.payload.validationErrors;
           setEmailError(validationErrors.emailAddress || '');
           setPasswordError(validationErrors.password || '');
@@ -65,7 +64,6 @@ const ResetPassword = () => {
           setPasswordError('');
           setError(result.payload.message || t('Errors.failedResetPassword'));
         }
-      }
     }
   };
 
@@ -112,9 +110,9 @@ const ResetPassword = () => {
           />
         </View>
         <View style={styles.errorContainer}>
-          {error && <Text style={styles.error}>{error}</Text>}
-          {emailError && <Text style={styles.error}>{emailError}</Text>}
-          {passwordError && <Text style={styles.error}>{passwordError}</Text>}
+          {!!(error) && <Text style={styles.error}>{error}</Text>}
+          {!!(emailError) && <Text style={styles.error}>{emailError}</Text>}
+          {!!(passwordError) && <Text style={styles.error}>{passwordError}</Text>}
         </View>
         <View style={styles.buttonContainer}>
           <Button
@@ -137,7 +135,7 @@ const ResetPassword = () => {
         subTitle={t('PasswordChangeSuccess.subTitle')}
         buttonLabel={t('PasswordChangeSuccess.button')}
         onButtonPress={() => {
-          navigate(Routes.HOME);
+          navigate(Routes.BOTTOM_TABS);
         }}
         icon={AppImages.Success}
       />

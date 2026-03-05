@@ -66,5 +66,15 @@
     "fieldRequired": "This field is required.",
     "confirmPasswordError": "Passwords do not match.",
     "failedResetPassword": "Password reset failed. Please try again."
+  },
+  "Home": {
+    "title": "Gemstore",
+    "tab1": "Women",
+    "tab2": "Men",
+    "tab3": "Accessories",
+    "tab4": "Beauty",
+    "featuredProducts": "Featured Products",
+    "showAll": "Show All",
+    "topCollections": "Top Collections"
   }
 }

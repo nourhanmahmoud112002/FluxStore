@@ -1,0 +1,32 @@
+import { createStackNavigator } from '@react-navigation/stack';
+import { Routes } from './Routes';
+import Login from '../features/Login';
+import OnBoarding from '../features/OnBoarding';
+import SignUp from '../features/SignUp';
+import Welcome from '../features/Welcome';
+import ForgetPassword from '../features/ForgetPasswordFlow/ForgetPassword';
+import Verification from '../features/ForgetPasswordFlow/Verification';
+import ResetPassword from '../features/ForgetPasswordFlow/ResetPassword';
+import { getBooleanData, MMKV_KEYS } from '../common';
+
+const AuthNavigation = () => {
+  const Stack = createStackNavigator();
+  const finishOnBoarding = getBooleanData(MMKV_KEYS.FINISH_ONBOARDING);
+
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      {!finishOnBoarding && (
+        <>
+          <Stack.Screen name={Routes.WELCOME} component={Welcome} />
+          <Stack.Screen name={Routes.ONBOARDING} component={OnBoarding} />
+        </>
+      )}
+      <Stack.Screen name={Routes.LOGIN} component={Login} />
+      <Stack.Screen name={Routes.SIGNUP} component={SignUp} />
+      <Stack.Screen name={Routes.FORGET_PASSWORD} component={ForgetPassword} />
+      <Stack.Screen name={Routes.VERIFICATION} component={Verification} />
+      <Stack.Screen name={Routes.RESET_PASSWORD} component={ResetPassword} />
+    </Stack.Navigator>
+  );
+};
+export default AuthNavigation;

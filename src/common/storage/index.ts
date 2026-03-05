@@ -5,6 +5,7 @@ const storage = createMMKV();
 export const MMKV_KEYS = {
   TRANSLATION_KEY: 'app_language',
   USER_KEY: 'user_data',
+  FINISH_ONBOARDING: 'finish_onboarding',
 } as const;
 
 export const APP_LANGUAGES = {
