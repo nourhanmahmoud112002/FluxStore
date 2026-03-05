@@ -2,6 +2,7 @@ export { default as Home } from './Home';
 export { default as Search } from './Search';
 export { default as Cart } from './Cart';
 export { default as Profile } from './Profile';
+export { default as Products } from './Products';
 export * from './OnBoarding';
 export * from './Welcome';
 export * from './SignUp';

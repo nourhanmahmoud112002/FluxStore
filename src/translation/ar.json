@@ -76,5 +76,8 @@
     "featuredProducts": "منتجات مميزة",
     "showAll": "عرض الكل",
     "topCollections": "أفضل المجموعات"
+  },
+  "Products": {
+    "foundResults": "تم العثور على {{count}} نتائج"
   }
 }

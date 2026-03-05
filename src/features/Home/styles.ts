@@ -19,6 +19,9 @@ export const styles = StyleSheet.create({
     marginTop: px(30),
     marginBottom: px(20),
   },
+  tabsContainer:{
+    paddingTop:px(36),
+  },
   subHeaderContainer: {
     marginBottom: px(20),
     marginTop: px(35),

@@ -11,7 +11,6 @@ const MainNavigation = () => {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      // initialRouteName={Routes.HOME}
     >
       {!user && <Stack.Screen name={Routes.AUTH} component={AuthNavigation} />}
       <Stack.Screen name={Routes.BOTTOM_TABS} component={BottomTabs} />

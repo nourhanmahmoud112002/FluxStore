@@ -9,18 +9,32 @@ const Header = ({
   onLeftIconPress,
   onRightIconPress,
 }: IHeaderProps) => {
-  return <View style={styles.container}>
-    {leftIcon && (
-      <Pressable onPress={onLeftIconPress}>
-        <Image source={leftIcon} style={styles.icon} />
-      </Pressable>
-    )}
-    <Text style={styles.title}>{title}</Text>
-    {rightIcon && (
-      <Pressable onPress={onRightIconPress}>
-        <Image source={rightIcon} style={styles.icon} />
-      </Pressable>
-    )}
-  </View>;
+  const hasMultipleItems = leftIcon && rightIcon;
+  const hasLeftIconOnly = leftIcon && !rightIcon;
+
+  let containerStyle;
+  if (hasMultipleItems) {
+    containerStyle = styles.containerWithSpacing;
+  } else if (hasLeftIconOnly) {
+    containerStyle = styles.containerWithGap;
+  } else {
+    containerStyle = styles.container;
+  }
+
+  return (
+    <View style={containerStyle}>
+      {leftIcon && (
+        <Pressable onPress={onLeftIconPress}>
+          <Image source={leftIcon} style={styles.icon} />
+        </Pressable>
+      )}
+      <Text style={styles.title}>{title}</Text>
+      {rightIcon && (
+        <Pressable onPress={onRightIconPress}>
+          <Image source={rightIcon} style={styles.icon} />
+        </Pressable>
+      )}
+    </View>
+  );
 };
 export default Header;

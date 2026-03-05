@@ -76,5 +76,8 @@
     "featuredProducts": "Featured Products",
     "showAll": "Show All",
     "topCollections": "Top Collections"
+  },
+  "Products": {
+    "foundResults": "Found {{count}} Results"
   }
 }

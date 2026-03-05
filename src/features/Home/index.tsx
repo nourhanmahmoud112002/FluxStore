@@ -12,6 +12,7 @@ import { styles } from './styles';
 import { HomeTabs } from '../../mock/HomeTabs';
 import { View, ScrollView } from 'react-native';
 import { CardsListMock } from '../../mock/Cards';
+import { navigate, Routes } from '../../navigation';
 
 const Home = () => {
   const { t } = useAppTranslation();
@@ -26,7 +27,9 @@ const Home = () => {
           onRightIconPress={() => {}}
         />
 
-        <Tabs items={HomeTabs} />
+        <View style={styles.tabsContainer}>
+          <Tabs items={HomeTabs} />
+        </View>
         <View style={styles.backgroundOneContainer}>
           <ImageBackgroundCard imageUri={AppImages.Banner} />
         </View>
@@ -34,7 +37,9 @@ const Home = () => {
           <SubHeader
             title={t('Home.featuredProducts')}
             subTitle={t('Home.showAll')}
-            onPressSubTitle={() => {}}
+            onPressSubTitle={() => {
+              navigate(Routes.PRODUCTS);
+            }}
           />
         </View>
         <CardsList cards={CardsListMock} direction="horizontal" />

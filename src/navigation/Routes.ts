@@ -12,6 +12,8 @@ export const Routes = {
   SEARCH: 'Search',
   CART: 'Cart',
   PROFILE: 'Profile',
+  PRODUCTS: 'Products',
+  HOME_NAVIGATION: 'HomeNavigation',
 } as const;
 
 // Param list type for React Navigation
@@ -29,4 +31,5 @@ export type RootStackParamList = {
   [Routes.SEARCH]: undefined;
   [Routes.CART]: undefined;
   [Routes.PROFILE]: undefined;
+  [Routes.PRODUCTS]: undefined;
 };

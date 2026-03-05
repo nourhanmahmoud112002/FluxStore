@@ -26,4 +26,5 @@ export const AppImages = {
   Search: require('./search.png'),
   Cart: require('./cart.png'),
   Profile: require('./profile.png'),
+  InternalBack: require('./InternalBack.png'),
 };
