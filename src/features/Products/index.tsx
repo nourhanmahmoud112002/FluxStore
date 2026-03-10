@@ -1,6 +1,6 @@
 import { Text, View } from 'react-native';
 import { CardsList, Header } from '../../components';
-import { CardsListMock } from '../../mock/Cards';
+import { CardsListMock2 } from '../../mock/Cards';
 import { styles } from './styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAppTranslation } from '../../translation';
@@ -9,7 +9,7 @@ import { goBack } from '../../navigation';
 
 const Products = () => {
   const { t } = useAppTranslation();
-  const resultsCount = CardsListMock.length;
+  const resultsCount = CardsListMock2.length;
   const title = 'Dresses';
   return (
     <SafeAreaView style={styles.container}>
@@ -25,7 +25,7 @@ const Products = () => {
           {t('Products.foundResults', { count: resultsCount })}
         </Text>
       </View>
-      <CardsList cards={CardsListMock} direction="vertical" />
+      <CardsList cards={CardsListMock2} direction="vertical" />
     </SafeAreaView>
   );
 };
