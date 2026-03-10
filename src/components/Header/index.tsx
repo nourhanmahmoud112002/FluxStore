@@ -1,6 +1,7 @@
-import { Image, Pressable, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import { styles } from './styles';
 import { IHeaderProps } from './types';
+import Icon from '../Icon';
 
 const Header = ({
   title,
@@ -8,30 +9,46 @@ const Header = ({
   rightIcon,
   onLeftIconPress,
   onRightIconPress,
+  hasOuterContainer = false,
 }: IHeaderProps) => {
+  const componentStyles = styles(hasOuterContainer);
   const hasMultipleItems = leftIcon && rightIcon;
   const hasLeftIconOnly = leftIcon && !rightIcon;
 
   let containerStyle;
   if (hasMultipleItems) {
-    containerStyle = styles.containerWithSpacing;
+    containerStyle = componentStyles.containerWithSpacing;
   } else if (hasLeftIconOnly) {
-    containerStyle = styles.containerWithGap;
+    containerStyle = componentStyles.containerWithGap;
   } else {
-    containerStyle = styles.container;
+    containerStyle = componentStyles.container;
   }
 
   return (
     <View style={containerStyle}>
       {leftIcon && (
-        <Pressable onPress={onLeftIconPress}>
-          <Image source={leftIcon} style={styles.icon} />
+        <Pressable
+          onPress={onLeftIconPress}
+          style={componentStyles.iconContainer}
+        >
+          <Icon
+            name={leftIcon}
+            width={componentStyles.icon.width}
+            height={componentStyles.icon.height}
+          />
         </Pressable>
       )}
-      <Text style={styles.title}>{title}</Text>
+      <Text style={componentStyles.title}>{title}</Text>
       {rightIcon && (
-        <Pressable onPress={onRightIconPress}>
-          <Image source={rightIcon} style={styles.icon} />
+        <Pressable
+          onPress={onRightIconPress}
+          style={componentStyles.iconContainer}
+        >
+          <Icon
+            name={rightIcon}
+            width={componentStyles.icon.width}
+            height={componentStyles.icon.height}
+          />
         </Pressable>
       )}
     </View>

@@ -60,9 +60,10 @@ export const styles = StyleSheet.create({
     zIndex: 1,
     width: px(27),
     height: px(27),
+    borderRadius: px(13.5),
+    backgroundColor: colors.white,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  favoriteIconImage: {
-    width: px(27),
-    height: px(27),
-  },
+  
 });

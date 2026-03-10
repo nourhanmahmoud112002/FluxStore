@@ -4,7 +4,6 @@ import { CardsListMock2 } from '../../mock/Cards';
 import { styles } from './styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAppTranslation } from '../../translation';
-import { AppImages } from '../../assets/images';
 import { goBack } from '../../navigation';
 
 const Products = () => {
@@ -15,10 +14,11 @@ const Products = () => {
     <SafeAreaView style={styles.container}>
       <Header
         title={title}
-        leftIcon={AppImages.InternalBack}
+        leftIcon={'Back'}
         onLeftIconPress={() => {
           goBack();
         }}
+        hasOuterContainer={true}
       />
       <View style={styles.innerContainer}>
         <Text style={styles.foundResultsText}>

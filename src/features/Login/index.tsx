@@ -4,7 +4,6 @@ import { useAppTranslation } from '../../translation';
 import TextInput from '../../components/TextInput';
 import Button from '../../components/Button';
 import SocialIcon from '../../components/SocialIcon';
-import { AppImages } from '../../assets/images';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { navigate, Routes } from '../../navigation';
 import { AppDispatch, RootState } from '../../redux/store';
@@ -109,14 +108,14 @@ const Login = () => {
         />
         <Text style={styles.signUpWithText}>{t('Login.loginWith')}</Text>
         <View style={styles.socialIcons}>
-          <SocialIcon source={AppImages.Apple} onPress={() => {}} />
+          <SocialIcon source="Apple" onPress={() => {}} />
           <SocialIcon
-            source={AppImages.Google}
+            source="Google"
             onPress={() => {
               handleGoogleSignIn();
             }}
           />
-          <SocialIcon source={AppImages.FaceBook} onPress={() => {}} />
+          <SocialIcon source="FaceBook" onPress={() => {}} />
         </View>
         <Text style={styles.noAccountText}>
           {t('Login.noAccount')}

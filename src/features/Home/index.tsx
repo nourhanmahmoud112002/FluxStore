@@ -21,9 +21,9 @@ const Home = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <Header
           title={t('Home.title')}
-          leftIcon={AppImages.Menu}
+          leftIcon={'Menu'}
           onLeftIconPress={() => {}}
-          rightIcon={AppImages.Notification}
+          rightIcon={'BellPin'}
           onRightIconPress={() => {}}
         />
 

@@ -20,4 +20,5 @@ export const colors = {
   warmGray: '#9B9B9B',
   inactiveTab: '#E6E8EC',
   deepBrown: '#33302E',
+  lightRed: '#FF6E6E',
 } as const;

@@ -1,6 +1,6 @@
-import { ImageSourcePropType } from "react-native";
+import { AppIcons } from "../../assets/svgs";
 
 export interface ISocialIconProps {
-    source:ImageSourcePropType;
+    source:keyof typeof AppIcons;
     onPress:()=>void;
 }

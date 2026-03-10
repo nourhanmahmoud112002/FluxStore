@@ -1,27 +1,26 @@
-import { AppImages } from '../assets/images';
 import { ICategoryIconProps } from '../components/CategoryIcon/types';
 
 export const HomeTabs: ICategoryIconProps[] = [
   {
-    icon: AppImages.Women,
+    icon: 'Women',
     label: 'Home.tab1',
     selected: false,
     onPress: () => {},
   },
   {
-    icon: AppImages.Men,
+    icon: 'Men',
     label: 'Home.tab2',
     selected: false,
     onPress: () => {},
   },
   {
-    icon: AppImages.Accessories,
+    icon: 'Accessories',
     label: 'Home.tab3',
     selected: false,
     onPress: () => {},
   },
   {
-    icon: AppImages.Beauty,
+    icon: 'Beauty',
     label: 'Home.tab4',
     selected: false,
     onPress: () => {},

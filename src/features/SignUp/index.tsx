@@ -5,7 +5,6 @@ import { useAppTranslation } from '../../translation';
 import TextInput from '../../components/TextInput';
 import Button from '../../components/Button';
 import SocialIcon from '../../components/SocialIcon';
-import { AppImages } from '../../assets/images';
 import { navigate, Routes } from '../../navigation';
 import { useState } from 'react';
 import { AppDispatch, RootState } from '../../redux/store';
@@ -53,13 +52,13 @@ const SignUp = () => {
         }
         navigate(Routes.BOTTOM_TABS);
       } else if (result.payload.errorCode === 'VALIDATION_ERROR') {
-          const validationErrors = result.payload.validationErrors;
-          setNameError(validationErrors?.name || '');
-          setEmailError(validationErrors?.emailAddress || '');
-          setPasswordError(validationErrors?.password || '');
-        } else {
-          setError(result.payload.message || t('SignUp.error'));
-        }
+        const validationErrors = result.payload.validationErrors;
+        setNameError(validationErrors?.name || '');
+        setEmailError(validationErrors?.emailAddress || '');
+        setPasswordError(validationErrors?.password || '');
+      } else {
+        setError(result.payload.message || t('SignUp.error'));
+      }
     }
   };
   return (
@@ -72,7 +71,7 @@ const SignUp = () => {
             value={name}
             onChangeText={setName}
           />
-          {!!(nameError) && <Text style={styles.errorText}>{nameError}</Text>}
+          {!!nameError && <Text style={styles.errorText}>{nameError}</Text>}
         </View>
 
         <View>
@@ -82,7 +81,7 @@ const SignUp = () => {
             onChangeText={setEmail}
             keyboardType="email-address"
           />
-          {!!(emailError) && <Text style={styles.errorText}>{emailError}</Text>}
+          {!!emailError && <Text style={styles.errorText}>{emailError}</Text>}
         </View>
         <View>
           <TextInput
@@ -90,7 +89,7 @@ const SignUp = () => {
             value={password}
             onChangeText={setPassword}
           />
-          {!!(passwordError) && (
+          {!!passwordError && (
             <Text style={styles.errorText}>{passwordError}</Text>
           )}
         </View>
@@ -100,7 +99,7 @@ const SignUp = () => {
             value={confirmPassword}
             onChangeText={setConfirmPassword}
           />
-          {!!(confirmPasswordError) && (
+          {!!confirmPasswordError && (
             <Text style={styles.errorText}>{confirmPasswordError}</Text>
           )}
         </View>
@@ -119,9 +118,9 @@ const SignUp = () => {
         />
         <Text style={styles.signUpWithText}>{t('SignUp.signUpWith')}</Text>
         <View style={styles.socialIcons}>
-          <SocialIcon source={AppImages.Apple} onPress={() => {}} />
-          <SocialIcon source={AppImages.Google} onPress={() => {}} />
-          <SocialIcon source={AppImages.FaceBook} onPress={() => {}} />
+          <SocialIcon source="Apple" onPress={() => {}} />
+          <SocialIcon source="Google" onPress={() => {}} />
+          <SocialIcon source="FaceBook" onPress={() => {}} />
         </View>
         <Text style={styles.haveAccountText}>
           {t('SignUp.haveAccount')}

@@ -1,9 +1,9 @@
-import { View, TextInput as BaseInput, Image, Pressable } from 'react-native';
+import { View, TextInput as BaseInput, Pressable } from 'react-native';
 import { ITextInputProps } from './types';
-import { colors } from '../../common';
+import { colors, px } from '../../common';
 import { styles } from './styles';
 import { forwardRef } from 'react';
-import { AppImages } from '../../assets/images';
+import Icon from '../Icon';
 
 const TextInput = forwardRef<BaseInput, ITextInputProps>(
   (
@@ -27,7 +27,7 @@ const TextInput = forwardRef<BaseInput, ITextInputProps>(
     };
     return (
       <View style={[styles.container, customStyles]}>
-        {startIcon && <Image source={startIcon} style={styles.icon} />}
+        {startIcon && <Icon name={startIcon} width={px(22)} height={px(22)} />}
         <BaseInput
           ref={ref}
           placeholder={placeholder}
@@ -35,14 +35,14 @@ const TextInput = forwardRef<BaseInput, ITextInputProps>(
           onChangeText={handleChangeText}
           placeholderTextColor={colors.black}
           style={[styles.textInput, inputStyle]}
-          secureTextEntry={endIcon === AppImages.VisibilityOff}
+          secureTextEntry={endIcon === 'VisibilityOff'}
           maxLength={maxLength}
           keyboardType={keyboardType}
           onKeyPress={onKeyPress}
         />
         {endIcon && (
           <Pressable onPress={onEndIconPress}>
-            <Image source={endIcon} style={styles.icon} />
+            <Icon name={endIcon} width={px(22)} height={px(22)} />
           </Pressable>
         )}
       </View>

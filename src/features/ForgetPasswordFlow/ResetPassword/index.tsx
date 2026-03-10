@@ -6,7 +6,6 @@ import { Text, View } from 'react-native';
 import TextInput from '../../../components/TextInput';
 import { useRef, useState } from 'react';
 import { BottomSheetModal } from '@gorhom/bottom-sheet';
-import { AppImages } from '../../../assets/images';
 import Button from '../../../components/Button';
 import Sheet from '../../../components/Sheet';
 import { navigate, RootStackParamList, Routes } from '../../../navigation';
@@ -55,15 +54,15 @@ const ResetPassword = () => {
         resetErrors();
         bottomSheetRef.current?.present();
       } else if (result.payload.errorCode === 'VALIDATION_ERROR') {
-          const validationErrors = result.payload.validationErrors;
-          setEmailError(validationErrors.emailAddress || '');
-          setPasswordError(validationErrors.password || '');
-          setError('');
-        } else {
-          setEmailError('');
-          setPasswordError('');
-          setError(result.payload.message || t('Errors.failedResetPassword'));
-        }
+        const validationErrors = result.payload.validationErrors;
+        setEmailError(validationErrors.emailAddress || '');
+        setPasswordError(validationErrors.password || '');
+        setError('');
+      } else {
+        setEmailError('');
+        setPasswordError('');
+        setError(result.payload.message || t('Errors.failedResetPassword'));
+      }
     }
   };
 
@@ -86,9 +85,7 @@ const ResetPassword = () => {
             onChangeText={text => {
               setPassword(text);
             }}
-            endIcon={
-              showPassword ? AppImages.Visibility : AppImages.VisibilityOff
-            }
+            endIcon={showPassword ? 'Visibility' : 'VisibilityOff'}
             onEndIconPress={() => {
               setShowPassword(!showPassword);
             }}
@@ -99,20 +96,16 @@ const ResetPassword = () => {
             onChangeText={text => {
               setConfirmPassword(text);
             }}
-            endIcon={
-              showConfirmPassword
-                ? AppImages.Visibility
-                : AppImages.VisibilityOff
-            }
+            endIcon={showConfirmPassword ? 'Visibility' : 'VisibilityOff'}
             onEndIconPress={() => {
               setShowConfirmPassword(!showConfirmPassword);
             }}
           />
         </View>
         <View style={styles.errorContainer}>
-          {!!(error) && <Text style={styles.error}>{error}</Text>}
-          {!!(emailError) && <Text style={styles.error}>{emailError}</Text>}
-          {!!(passwordError) && <Text style={styles.error}>{passwordError}</Text>}
+          {!!error && <Text style={styles.error}>{error}</Text>}
+          {!!emailError && <Text style={styles.error}>{emailError}</Text>}
+          {!!passwordError && <Text style={styles.error}>{passwordError}</Text>}
         </View>
         <View style={styles.buttonContainer}>
           <Button
@@ -137,7 +130,7 @@ const ResetPassword = () => {
         onButtonPress={() => {
           navigate(Routes.BOTTOM_TABS);
         }}
-        icon={AppImages.Success}
+        icon="Success"
       />
     </>
   );

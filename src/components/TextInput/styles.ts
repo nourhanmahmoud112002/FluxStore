@@ -14,8 +14,4 @@ export const styles = StyleSheet.create({
   textInput: {
     flex: 1,
   },
-  icon: {
-    width: px(16),
-    height: px(16),
-  },
 });

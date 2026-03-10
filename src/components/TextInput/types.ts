@@ -6,14 +6,14 @@ import {
   TextStyle,
   ViewStyle,
 } from 'react-native';
-import { AppImages } from '../../assets/images';
+import { AppIcons } from '../../assets/svgs';
 
 export interface ITextInputProps {
   placeholder: string;
   value: string;
   onChangeText: (text: string) => void;
-  startIcon?: (typeof AppImages)[keyof typeof AppImages];
-  endIcon?: (typeof AppImages)[keyof typeof AppImages];
+  startIcon?: keyof typeof AppIcons;
+  endIcon?: keyof typeof AppIcons;
   styles?: StyleProp<ViewStyle>;
   inputStyle?: StyleProp<TextStyle>;
   onEndIconPress?: () => void;

@@ -1,8 +1,8 @@
-import { ImageSourcePropType } from 'react-native';
+import { AppIcons } from '../../assets/svgs';
 
 export interface ISheetProps {
   bottomSheetRef?: React.RefObject<any>;
-  icon: ImageSourcePropType;
+  icon: keyof typeof AppIcons;
   title: string;
   subTitle: string;
   buttonLabel: string;

@@ -1,7 +1,5 @@
 import { Routes } from './Routes';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Image, ImageSourcePropType } from 'react-native';
-import { AppImages } from '../assets/images';
 import { Cart, Profile, Search } from '../features';
 import { colors, px } from '../common';
 import HomeNavigation from './HomeNavigation';
@@ -10,29 +8,22 @@ import {
   RouteProp,
   ParamListBase,
 } from '@react-navigation/native';
+import { AppIcons } from '../assets/svgs';
+import { Icon } from '../components';
 
 const Tab = createBottomTabNavigator();
 
-const TabIcon = ({
-  size,
-  color,
-  source,
-}: {
-  size: number;
-  color: string;
-  source: ImageSourcePropType;
-}) => (
-  <Image
-    source={source}
-    style={{ width: size, height: size, tintColor: color }}
-    resizeMode="contain"
-  />
-);
-
 const createTabIcon =
-  (source: ImageSourcePropType) =>
-  ({ size, color }: { size: number; color: string }) =>
-    <TabIcon size={size} color={color} source={source} />;
+  (source: keyof typeof AppIcons) =>
+  ({ focused, size }: { focused: boolean; size: number }) =>
+    (
+      <Icon
+        name={source}
+        width={size}
+        height={size}
+        color={focused ? 'black' : 'inactiveTab'}
+      />
+    );
 
 const defaultTabBarStyle = {
   borderRadius: px(16),
@@ -47,7 +38,7 @@ const getTabBarStyle = ({ route }: { route: RouteProp<ParamListBase> }) => {
   return routeName === Routes.HOME
     ? defaultTabBarStyle
     : { display: 'none' as const };
-};  
+};
 
 const BottomTabs = () => {
   return (
@@ -64,7 +55,7 @@ const BottomTabs = () => {
         name={Routes.HOME_NAVIGATION}
         component={HomeNavigation}
         options={({ route }) => ({
-          tabBarIcon: createTabIcon(AppImages.Home),
+          tabBarIcon: createTabIcon('Home'),
           tabBarStyle: getTabBarStyle({ route }),
         })}
       />
@@ -72,21 +63,21 @@ const BottomTabs = () => {
         name={Routes.SEARCH}
         component={Search}
         options={{
-          tabBarIcon: createTabIcon(AppImages.Search),
+          tabBarIcon: createTabIcon('Search'),
         }}
       />
       <Tab.Screen
         name={Routes.CART}
         component={Cart}
         options={{
-          tabBarIcon: createTabIcon(AppImages.Cart),
+          tabBarIcon: createTabIcon('Cart'),
         }}
       />
       <Tab.Screen
         name={Routes.PROFILE}
         component={Profile}
         options={{
-          tabBarIcon: createTabIcon(AppImages.Profile),
+          tabBarIcon: createTabIcon('Profile'),
         }}
       />
     </Tab.Navigator>

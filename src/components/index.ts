@@ -12,3 +12,4 @@ export { default as Card } from './Card';
 export { default as Stars } from './Stars';
 export { default as CardsList } from './CardsList';
 export { default as SubHeader } from './SubHeader';
+export { default as Icon } from './Icon';

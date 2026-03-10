@@ -1,7 +1,8 @@
-import { Image, Pressable } from 'react-native';
+import { Pressable } from 'react-native';
 import { goBack } from '../../navigation';
-import { AppImages } from '../../assets/images';
 import { styles } from './styles';
+import Icon from '../Icon';
+import { px } from '../../common';
 
 const BackIcon = () => {
   return (
@@ -11,7 +12,7 @@ const BackIcon = () => {
       }}
       style={styles.container}
     >
-      <Image source={AppImages.Back} />
+      <Icon name="Back" width={px(12)} height={px(12)} />
     </Pressable>
   );
 };

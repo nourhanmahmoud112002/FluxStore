@@ -1,6 +1,7 @@
-import { Image, Pressable, Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import { ICategoryIconProps } from './types';
 import { styles } from './styles';
+import Icon from '../Icon';
 
 const CategoryIcon = ({
   icon,
@@ -12,10 +13,10 @@ const CategoryIcon = ({
     <Pressable onPress={onPress} style={styles({ selected }).container}>
       <View style={styles({ selected }).outerContainer}>
         <View style={styles({ selected }).innerContainer}>
-          <Image
-            source={icon}
-            style={styles({ selected }).icon}
-            resizeMode="contain"
+          <Icon
+            name={icon}
+            width={styles({ selected }).icon.width}
+            height={styles({ selected }).icon.height}
           />
         </View>
       </View>

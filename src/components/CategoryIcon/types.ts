@@ -1,7 +1,7 @@
-import { AppImages } from '../../assets/images';
+import { AppIcons } from '../../assets/svgs';
 
 export interface ICategoryIconProps {
-  icon: (typeof AppImages)[keyof typeof AppImages];
+  icon: keyof typeof AppIcons;
   label: string;
   selected: boolean;
   onPress: () => void;
